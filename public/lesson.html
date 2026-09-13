@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson — NetForge</title>
+  <script>(function(){try{var t=localStorage.getItem('nf-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="lesson">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main" class="container lesson-layout">
+    <aside class="lesson-sidebar" id="lesson-sidebar" aria-label="Lessons in this module">
+      <div class="card card-pad-sm">
+        <div class="flex-between" style="padding:0 .25rem .75rem">
+          <h2 class="mb-0" id="sidebar-module"></h2>
+        </div>
+        <nav class="lesson-nav-list" id="lesson-nav-list" aria-label="Module lesson list"></nav>
+      </div>
+    </aside>
+
+    <section>
+      <button type="button" class="btn btn-ghost btn-sm mb-1" id="sidebar-toggle" aria-expanded="false" aria-controls="lesson-sidebar">
+        <span id="sb-icon"></span> <span id="sb-label">Show module lessons</span>
+      </button>
+
+      <article class="lesson-card">
+        <div class="lesson-body" id="lesson-body">
+          <div class="empty-state" id="lesson-loading">Loading lesson…</div>
+        </div>
+        <div id="quiz-region" class="lesson-body" hidden></div>
+        <div class="lesson-body" id="lesson-footer"></div>
+      </article>
+
+      <div id="notes-panel" class="lesson-card mt-2" hidden></div>
+      <section id="comments-panel" class="lesson-card mt-2"></section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>NetForge — self-paced networking course.</span>
+      <span id="footer-link"></span>
+    </div>
+  </footer>
+
+  <script src="js/icons.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/labs/labs.js"></script>
+  <script src="js/lesson.js"></script>
+</body>
+</html>

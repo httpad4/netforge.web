@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetForge</title>
+  <meta name="description" content="NetForge is a self-paced learning platform for computer networking: modules, interactive labs, quizzes, and progress tracking for students and hobbyists." />
+  <script>(function(){try{var t=localStorage.getItem('nf-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main">
+    <section class="container hero">
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="hero-net" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
+          <path class="hero-net-links"
+            d="M60 70L260 190 520 90 780 120 1120 110 M260 190 360 320 640 250 900 330 1120 110 M180 430 360 320 520 90 M640 250 780 120 M900 330 1040 430 820 470 640 250 M420 300 640 250" />
+          <g class="hero-net-nodes">
+            <circle cx="60" cy="70" r="12" /><circle cx="260" cy="190" r="9" />
+            <circle cx="520" cy="90" r="10" /><circle cx="360" cy="320" r="8" />
+            <circle cx="640" cy="250" r="7" /><circle cx="780" cy="120" r="9" />
+            <circle cx="900" cy="330" r="8" /><circle cx="1120" cy="110" r="12" />
+            <circle cx="1040" cy="430" r="9" /><circle cx="820" cy="470" r="7" />
+            <circle cx="180" cy="430" r="11" /><circle cx="420" cy="300" r="6" />
+          </g>
+        </svg>
+        <span class="hero-f f-wifi float" data-icon="wifi"></span>
+        <span class="hero-f f-globe" data-icon="globe"></span>
+        <span class="hero-f f-link" data-icon="link"></span>
+        <span class="hero-f f-cpu float" data-icon="cpu"></span>
+        <span class="hero-f f-shield" data-icon="shield"></span>
+        <span class="hero-f f-activity" data-icon="activity"></span>
+      </div>
+      <h1>Learn computer networking, at your own pace</h1>
+      <div class="hero-actions">
+        <a class="btn btn-cta-green btn-lg" href="modules.html">Explore modules</a>
+        <button type="button" class="btn btn-ghost btn-lg" data-open-auth data-tab-reg="register">Signed in</button>
+      </div>
+    </section>
+
+    <section class="container grid grid-cards grid-cards-3" aria-label="What NetForge offers">
+      <a class="card module-card feature-link" href="modules.html">
+        <div class="card-head"><span class="card-icon"><span data-icon="layers"></span></span><h3>Self-paced modules</h3></div>
+        <p>Eight structured modules from networking basics to troubleshooting, each with bite-sized lessons.</p>
+        <span class="feature-cta">Explore modules <span class="feature-arrow"></span></span>
+      </a>
+      <a class="card module-card feature-link" href="modules.html">
+        <div class="card-head"><span class="card-icon"><span data-icon="terminal"></span></span><h3>Interactive labs</h3></div>
+        <p>Practice with a subnet calculator, an OSI layer matcher, and a simulated troubleshooting terminal.</p>
+        <span class="feature-cta">Try the labs <span class="feature-arrow"></span></span>
+      </a>
+      <a class="card module-card feature-link" href="dashboard.html">
+        <div class="card-head"><span class="card-icon"><span data-icon="trophy"></span></span><h3>Quizzes &amp; badges</h3></div>
+        <p>Earn badges for milestones, keep a daily streak, and finish the course with a printable certificate.</p>
+        <span class="feature-cta">See your progress <span class="feature-arrow"></span></span>
+      </a>
+    </section>
+
+    <section class="container mt-3">
+      <div class="flex-between">
+        <h2>The curriculum</h2>
+        <a class="btn btn-ghost btn-sm" href="modules.html">View all modules <span id="modules-arrow"></span></a>
+      </div>
+      <div class="grid grid-cards mt-2" id="curriculum-list" aria-live="polite">
+        <div class="empty-state">Loading curriculum…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <span class="footer-logo" aria-hidden="true"><span data-icon="logo"></span></span>
+            <div class="footer-wordmark">NetForge</div>
+          </div>
+          <p class="footer-tagline">Learn networking, one module at a time.</p>
+          <div class="footer-social">
+            <a href="https://github.com/netforge" aria-label="NetForge on GitHub" rel="noopener"><span data-icon="github"></span></a>
+            <a href="https://x.com/netforge" aria-label="NetForge on X" rel="noopener"><span data-icon="x"></span></a>
+            <a href="https://www.linkedin.com/company/netforge" aria-label="NetForge on LinkedIn" rel="noopener"><span data-icon="linkedin"></span></a>
+            <a href="mailto:support@netforge.example" aria-label="Email NetForge"><span data-icon="mail"></span></a>
+          </div>
+        </div>
+
+        <div class="footer-col learn">
+          <button type="button" class="footer-col-title" aria-expanded="false" aria-controls="footer-links-learn">
+            <span>Learn</span><span class="footer-chevron" data-icon="chevronDown" aria-hidden="true"></span>
+          </button>
+          <nav class="footer-links" id="footer-links-learn" aria-label="Learn">
+            <a href="modules.html">Modules</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="roadmap.html">Roadmap / Learning Path</a>
+          </nav>
+        </div>
+
+        <div class="footer-col support">
+          <button type="button" class="footer-col-title" aria-expanded="false" aria-controls="footer-links-support">
+            <span>Support</span><span class="footer-chevron" data-icon="chevronDown" aria-hidden="true"></span>
+          </button>
+          <nav class="footer-links" id="footer-links-support" aria-label="Support">
+            <a href="faq.html">FAQ</a>
+            <a href="contacts.html">Contact Us</a>
+            <a href="report-an-issue.html">Report an Issue</a>
+            <a href="community-guidelines.html">Community Guidelines</a>
+          </nav>
+        </div>
+
+        <div class="footer-col legal">
+          <button type="button" class="footer-col-title" aria-expanded="false" aria-controls="footer-links-legal">
+            <span>Legal</span><span class="footer-chevron" data-icon="chevronDown" aria-hidden="true"></span>
+          </button>
+          <nav class="footer-links" id="footer-links-legal" aria-label="Legal">
+            <a href="about.html">About NetForge</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+          </nav>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; <span id="footer-year"></span> NetForge. All rights reserved.</span>
+        <button type="button" class="back-to-top"><span data-icon="arrowUp" aria-hidden="true"></span> Back to top</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/icons.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
