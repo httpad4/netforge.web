@@ -27,7 +27,7 @@
 
   function renderAuthNav(container, user) {
     if (!user) {
-      container.innerHTML = `<button type="button" class="btn btn-cta-green btn-sm" data-open-auth aria-haspopup="dialog">${icon('user')} Signed in</button>`;
+      container.innerHTML = `<button type="button" class="btn btn-cta-green btn-sm" data-open-auth aria-haspopup="dialog">${icon('user')} Sign in / Create account</button>`;
       container.querySelector('[data-open-auth]').addEventListener('click', openAuthModal);
       return;
     }
