@@ -18,9 +18,8 @@
     if (!$('#gs-icon')) { /* noop */ }
     const guest = $('#guest-state');
     const loading = $('#dash-loading');
+    guest.hidden = !!me;
     if (!me) {
-      guest.hidden = false;
-      guest.querySelector('[data-open-auth]');
       const gs = $('#gs-icon');
       if (gs) gs.innerHTML = icon('info');
       loading.innerText = '';

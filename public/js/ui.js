@@ -28,7 +28,6 @@
   function renderAuthNav(container, user) {
     if (!user) {
       container.innerHTML = `<button type="button" class="btn btn-cta-green btn-sm" data-open-auth aria-haspopup="dialog">${icon('user')} Sign in / Create account</button>`;
-      container.querySelector('[data-open-auth]').addEventListener('click', openAuthModal);
       return;
     }
     container.innerHTML = `
@@ -108,6 +107,7 @@
   // Auth modal
   // ---------------------------------------------------------------------
   let modalEl = null;
+  let modalHistoryActive = false;
 
   function buildModal() {
     modalEl = document.createElement('div');
@@ -159,7 +159,7 @@
         </div>
       </div>`;
 
-    modalEl.querySelector('[data-close-auth]').addEventListener('click', closeAuthModal);
+    modalEl.querySelector('[data-close-auth]').addEventListener('click', () => closeAuthModal());
     modalEl.addEventListener('click', (e) => {
       if (e.target === modalEl) closeAuthModal();
     });
@@ -217,26 +217,47 @@
     modalEl.querySelector('[data-tabpanel="register"]').hidden = tab !== 'register';
   }
 
-  function openAuthModal() {
+  function openAuthModal(tab) {
     if (!modalEl) buildModal();
+    const wanted = tab === 'login' || tab === 'register' ? tab : null;
+    const wasHidden = modalEl.hidden;
+    if (wanted) setAuthTab(wanted);
     modalEl.hidden = false;
-    modalEl.querySelector('input').focus();
+    if (wasHidden && !modalHistoryActive) {
+      try { window.history.pushState({ nfAuthModal: true }, ''); modalHistoryActive = true; } catch (err) {}
+    }
+    const input = modalEl.querySelector('[data-tabpanel]:not([hidden]) input') || modalEl.querySelector('input');
+    if (input) input.focus();
     document.addEventListener('keydown', escClose);
   }
 
-  function closeAuthModal() {
-    if (modalEl) modalEl.hidden = true;
+  function closeAuthModal(fromPop) {
+    if (!modalEl || modalEl.hidden) return;
+    modalEl.hidden = true;
     document.removeEventListener('keydown', escClose);
+    if (modalHistoryActive) {
+      modalHistoryActive = false;
+      if (!fromPop) {
+        try { window.history.back(); } catch (err) {}
+      }
+    }
   }
 
   function escClose(e) {
     if (e.key === 'Escape') closeAuthModal();
   }
 
-  /* Close toast region / auth flows */
+  // Browser/app Back closes the dialog first instead of leaving the page.
+  window.addEventListener('popstate', () => {
+    if (modalEl && !modalEl.hidden) closeAuthModal(true);
+  });
+
+  /* Open the auth dialog from any [data-open-auth] control */
   document.addEventListener('click', (e) => {
     const opener = e.target.closest('[data-open-auth]');
-    if (opener) openAuthModal();
+    if (!opener) return;
+    e.preventDefault();
+    openAuthModal(opener.getAttribute('data-tab-reg'));
   });
 
   // ---------------------------------------------------------------------

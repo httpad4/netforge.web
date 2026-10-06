@@ -87,6 +87,10 @@
 *::before,
 *::after { box-sizing: border-box; }
 
+/* Author rules like .modal-backdrop/.callout set display:flex, which would
+   otherwise beat the UA [hidden] rule and leave "hidden" elements visible. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {

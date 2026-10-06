@@ -64,15 +64,36 @@ list.innerHTML = modules.slice(0, 8).map((m, i) => `
     }
   }
 
+  function updateHeroAuth() {
+    const btn = document.getElementById('hero-signup');
+    const auth = window.NetForgeAuth;
+    if (!btn || !auth || !auth.loaded) return;
+
+    if (auth.user) {
+      btn.innerHTML = `${icon('check')} Signed up`;
+      btn.classList.add('signed-in-pill');
+      btn.setAttribute('aria-disabled', 'true');
+      btn.removeAttribute('data-open-auth');
+      btn.removeAttribute('data-tab-reg');
+    } else {
+      btn.innerHTML = `Sign up — it&rsquo;s free`;
+      btn.classList.remove('signed-in-pill');
+      btn.removeAttribute('aria-disabled');
+      btn.setAttribute('data-open-auth', '');
+      btn.setAttribute('data-tab-reg', 'register');
+    }
+  }
+
   function init() {
     paintStaticIcons();
     loadCurriculum();
     initFooter();
 
-    // "Sign up" opens the auth modal on the register tab.
-    document.querySelector('[data-tab-reg]')?.addEventListener('click', () => {
-      window.NetForgeUI.openAuthModal();
-    });
+    // "Sign up — it's free" shows a checkmark once the user has an account;
+    // while signed out the shared [data-open-auth] handler opens the
+    // registration tab of the auth modal.
+    document.addEventListener('nf:authchange', updateHeroAuth);
+    updateHeroAuth();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

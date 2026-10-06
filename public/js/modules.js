@@ -45,6 +45,7 @@
 
   async function render() {
     const grid = document.getElementById('module-grid');
+    await window.NetForgeUI.requireAuthPage();
     let modules;
     try {
       const data = await window.NetForgeApi.apiGet('/modules');
