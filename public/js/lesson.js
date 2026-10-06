@@ -137,7 +137,7 @@
     }
     wrap.innerHTML = `
       <div class="flex">
-        <button type="button" class="btn btn-primary" id="complete-btn">${icon('check')} Done</button>
+        <button type="button" class="btn btn-primary" id="complete-btn">Done</button>
         ${navButtons()}
       </div>`;
     q('#complete-btn').addEventListener('click', completeLesson);

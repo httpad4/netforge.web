@@ -25,7 +25,7 @@
     wrap.className = 'flex mt-2';
     wrap.innerHTML = `
       <button type="button" class="btn btn-primary" disabled aria-describedby="${container.id}-lab-hint">
-        ${icon('check')} Done
+        Done
       </button>
       <span class="hint" id="${container.id}-lab-hint"></span>`;
     const btn = wrap.querySelector('button');

@@ -37,7 +37,7 @@ list.innerHTML = modules.slice(0, 8).map((m, i) => `
         </div>
         <p>${esc(m.description)}</p>
         <div class="mc-actions">
-          <span class="badge-pill">${icon('chevronRight')} Start</span>
+          <a class="badge-pill" href="lesson.html?slug=${encodeURIComponent(m.first_lesson_slug)}">${icon('chevronRight')} Start</a>
         </div>
       </article>`).join('');
   }
