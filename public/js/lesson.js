@@ -131,13 +131,13 @@
     }
     if (state.data.lesson.lesson_type === 'lab') {
       wrap.innerHTML = `
-        <div class="callout callout-info"><span>${icon('terminal')}</span><div>Finish the lab above, then use its "Mark lab complete" button.</div></div>
+        <div class="callout callout-info"><span>${icon('terminal')}</span><div>Finish the lab above, then use its "Done" button.</div></div>
         ${navButtons()}`;
       return;
     }
     wrap.innerHTML = `
       <div class="flex">
-        <button type="button" class="btn btn-primary" id="complete-btn">${icon('check')} Mark lesson as complete</button>
+        <button type="button" class="btn btn-primary" id="complete-btn">${icon('check')} Done</button>
         ${navButtons()}
       </div>`;
     q('#complete-btn').addEventListener('click', completeLesson);

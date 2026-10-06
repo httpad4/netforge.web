@@ -47,7 +47,7 @@ If `password` is omitted you will be prompted. Run it once; if the account alrea
 
 ## Curriculum content format
 
-Lesson bodies are Markdown rendered by a small in-house renderer (`public/js/markdown.js`). It supports headings, lists, tables, blockquotes, fenced code, inline code/links/image passthrough, and glossary auto-linking on text nodes (skipping `A`, `CODE`, `PRE`, `H1`–`H4`). Labs are inline DOM widgets introduced via `<div data-lab="subnet-calculator|osi-matcher|terminal">` and marked complete with the "Mark lab complete" button at 5 correct subnet answers / 7 matched OSI layers / 5 distinct diagnostic commands.
+Lesson bodies are Markdown rendered by a small in-house renderer (`public/js/markdown.js`). It supports headings, lists, tables, blockquotes, fenced code, inline code/links/image passthrough, and glossary auto-linking on text nodes (skipping `A`, `CODE`, `PRE`, `H1`–`H4`). Labs are inline DOM widgets introduced via `<div data-lab="subnet-calculator|osi-matcher|terminal">` and marked complete with the "Done" button at 5 correct subnet answers / 7 matched OSI layers / 5 distinct diagnostic commands.
 
 ## API surface
 
