@@ -161,15 +161,16 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
 
 .nav-toggle { margin-left: auto; }
 
-/* Mobile (<760px): NetForge logo + wordmark centered, nav (hamburger) and
-   theme toggles pinned to the top-right corner. */
+/* Mobile (<760px): NetForge logo + wordmark centered, nav (hamburger)
+   button pinned to the top-left, theme toggle to the top-right. */
 @media (max-width: 759px) {
   .header-inner { gap: .5rem; }
   .brand {
     position: absolute; left: 50%; transform: translateX(-50%);
     margin-right: 0;
   }
-  .nav-toggle { margin-left: auto; }
+  .nav-toggle { margin-left: 0; }
+  #theme-toggle { margin-left: auto; }
 }
 /* Very narrow phones: shrink the brand and toggles so the centered wordmark
    can never collide with the top-right buttons. */
